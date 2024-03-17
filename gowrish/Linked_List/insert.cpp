@@ -126,6 +126,52 @@ void reverseList(Node** head){
     *head = prev;
 }
 
+void cycleDetection(Node* head){
+    Node* slow = head;
+    Node* fast = head;
+
+    while(fast != NULL && fast->next != NULL){
+        slow = slow->next;
+        fast = fast->next->next;
+
+        if(slow == fast){
+            cout << "Cycle detected!" << endl;
+            return;
+        }
+    }
+    cout << "No cycle detected!" << endl;
+}
+
+Node *getIntersectionNode(Node *headA, Node *headB) {
+    auto getLength = [](Node *head) {
+        int length = 0;
+        while (head) {
+            length++;
+            head = head->next;
+        }
+        return length;
+    };
+    
+    int lenA = getLength(headA);
+    int lenB = getLength(headB);
+    
+    while (lenA > lenB) {
+        headA = headA->next;
+        lenA--;
+    }
+    while (lenB > lenA) {
+        headB = headB->next;
+        lenB--;
+    }
+    
+    while (headA != headB) {
+        headA = headA->next;
+        headB = headB->next;
+    }
+    
+    return headA;
+}
+
 int main(){
     Node* head = NULL;
     insert(&head, 1);
