@@ -1,3 +1,9 @@
+//Print all the elements in order from the point of intersection if the cycle exists in the linked list
+//if the list is sorted Now remove the duplicates from the list
+//Find the intersection point of two linked lists
+//Find the starting point of the cycle in the linked list
+
+
 #include<bits/stdc++.h>
 using namespace std;
 
