@@ -228,6 +228,95 @@
 #    temp->next = new_node;
 #    return head;
 # }
+# ---------------------
+# Node insertAtPosition(Node *head, int data, int position) {
+#     Node *new_node = (Node *)malloc(sizeof(Node));
+#     new_node->data = data;
+#     if(position == 1) {
+#         new_node->next = head;
+#         head = new_node;
+#         return head;
+#     }
+#     Node *temp = head;
+#     for(int i = 1; i < position - 1; i++) {
+#         temp = temp->next;
+#     }
+#     new_node->next = temp->next;
+#     temp->next = new_node;
+#     return head;
+# }
+# ---------------------
+# Node deleteAtBegin(Node *head) {
+#     if(head == NULL) {
+#         return head;
+#     }
+#     Node *temp = head;
+#     head = head->next;
+#     free(temp);
+#     return head;
+# }
+# ---------------------
+# Node deleteAtEnd(Node *head) {
+#     if(head == NULL) {
+#         return head;
+#     }
+#     if(head->next == NULL) {
+#         free(head);
+#         return NULL;
+#     }
+#     Node *temp = head;
+#     while(temp->next->next != NULL) {
+#         temp = temp->next;
+#     }
+#     free(temp->next);
+#     temp->next = NULL;
+#     return head;
+# }
+# ---------------------
+# Node deleteAtPosition(Node *head, int position) {
+#     if(head == NULL) {
+#         return head;
+#     }
+#     if(position == 1) {
+#         Node *temp = head;
+#         head = head->next;
+#         free(temp);
+#         return head;
+#     }
+#     Node *temp = head;
+#     for(int i = 1; i < position - 1; i++) {
+#         temp = temp->next;
+#     }
+#     Node *temp1 = temp->next;
+#     temp->next = temp1->next;
+#     free(temp1);
+#     return head;
+# }
+# ---------------------
+# Node reverseList(Node *head) {
+#     Node *prev = NULL, *current = head, *next = NULL;
+#     while(current != NULL) {
+#         next = current->next;
+#         current->next = prev;
+#         prev = current;
+#         current = next;
+#     }
+#     head = prev;
+#     return head;
+# }
+# ---------------------(Detecting the loop in the Linked List)
+# int detectLoop(Node *head) {
+#     Node *slow = head, *fast = head;
+#     while(slow && fast && fast->next) {
+#         slow = slow->next;    
+#         fast = fast->next->next;
+#         if(slow == fast) {    
+#             return 1;
+#         }
+#     }
+#     return 0;
+# }
+# ---------------------
 
 # d)-----
 # Some Important Points
@@ -241,18 +330,24 @@
 # Return the only friend's name where they have most of the characters in common.(If there are multiple such answers, return the lexicographically 
 # smallest name)
 # Example: person = "Sagar", friends = ["Sahara", 'Sumith', 'Karthik', 'Sarah', 'Senthil']
-person = input()
-friends = list(map(int, input().split()))
-pletters = set(person)
-counts = []
-for friend in friends:
-    counts.append(0)
-    for ch in friend:
-        if ch in pletters:
-            counts[-1] += 1
-tresults = []
-
-
+# from collections import Counter
+# person = input()
+# friends = input().split()
+# pfreq = Counter(person)
+# pset = set(person)
+# counts = []
+# for friend in friends:
+#     counts.append(0)
+#     ffreq = Counter(friend)
+#     for letter in ffreq:
+#         if letter in pset:
+#             counts[-1] += min(ffreq[letter], pfreq[letter])
+# tresults = []
+# maxcount = max(counts)
+# for i in range(len(counts)):
+#     if counts[i] == maxcount:
+#         tresults.append(friends[i]) 
+# print(tresults[0])
 
 # f)-----
 # Given an array of integers where there are equal number of even and odd integers, place the even integers in the 
@@ -307,3 +402,8 @@ tresults = []
 # }
 # The recursive equation is T(n) = 1 + T(n-1) + T(n-1) ~ O(2^n)
 # Some other equation is T(n) = 1 + T(n/2) ~ O(nlog(n))
+
+# h)-----
+# * Do while loop is referred to as the exit control loop
+# * While loop is referred to as the entry control loop
+
