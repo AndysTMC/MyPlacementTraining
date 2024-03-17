@@ -316,7 +316,40 @@
 #     }
 #     return 0;
 # }
-# ---------------------
+# ---------------------(Finding the merge point of two linked lists)
+# int findMergePoint(Node *head1, Node *head2) {
+#     Node *temp1 = head1, *temp2 = head2;
+#     int length1 = 0, length2 = 0;
+#     while(temp1) {
+#         length1++;
+#         temp1 = temp1->next;
+#     }
+#     while(temp2) {
+#         length2++;
+#         temp2 = temp2->next;
+#     }
+#     int diff = abs(length1 - length2);
+#     temp1 = head1;
+#     temp2 = head2;
+#     if(length1 > length2) {
+#         for(int i = 0; i < diff; i++) {
+#             temp1 = temp1->next;
+#         }
+#     }
+#     else {
+#         for(int i = 0; i < diff; i++) {
+#             temp2 = temp2->next;
+#         }
+#     }
+#     while(temp1 && temp2) {
+#         if(temp1 == temp2) {
+#             return temp1->data;
+#         }
+#         temp1 = temp1->next;
+#         temp2 = temp2->next;
+#     }
+#     return -1;
+# }
 
 # d)-----
 # Some Important Points
@@ -407,3 +440,5 @@
 # * Do while loop is referred to as the exit control loop
 # * While loop is referred to as the entry control loop
 
+# i)-----
+# Given a linked list, print all the elements in the loop
