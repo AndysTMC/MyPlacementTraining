@@ -442,3 +442,52 @@
 
 # i)-----
 # Given a linked list, print all the elements in the loop
+
+# j)-----
+# Removing duplicate values from a sorted linked list
+# Node removeDuplicates(Node head) {
+#     Node temp = head;
+#     while(temp != NULL && temp->next != NULL) {
+#         if(temp->data == temp->next->data) {
+#             Node temp1 = temp->next;
+#             temp->next = temp->next->next;
+#             free(temp1);
+#         }
+#         else {
+#             temp = temp->next;
+#         }
+#     }
+#     return head;
+# }
+
+# k)-----
+# Inserting elements in a circular linked list at the beginning
+# Node insertAtBegin(Node tail, int data) {
+#     Node new_node = (Node *)malloc(sizeof(Node));
+#     new_node->data = data;
+#     if(tail == NULL) {
+#         new_node->next = new_node;
+#         tail = new_node;
+#     }
+#     else {
+#         new_node->next = tail->next;
+#         tail->next = new_node;
+#     }
+#     return tail;
+# }
+# Inserting elements in a circular linked list at the ending
+# Node insertAtEnd(Node tail, int data) {
+#     Node new_node = (Node *)malloc(sizeof(Node));
+#     new_node->data = data;
+#     if(tail == NULL) {
+#         new_node->next = new_node;
+#         tail = new_node;
+#     }
+#     else {
+#         new_node->next = tail->next;
+#         tail->next = new_node;
+#         tail = new_node;
+#     }
+#     return tail;
+# }
+
