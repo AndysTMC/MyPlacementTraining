@@ -1,6 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+/*
+    Insertion sort builds a sorted portion of the list by repeatedly picking the next element and inserting it into its correct position.
+    It shifts larger elements to the right to make space for the insertion.
+*/
+
 void insertion (vector<int>&arr){
     int n = arr.size();
     for(int i=1;i<n;i++){

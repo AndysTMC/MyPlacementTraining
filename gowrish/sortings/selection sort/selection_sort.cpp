@@ -1,6 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+/*
+    Selection sort repeatedly finds the minimum element from the unsorted portion of the list and swaps it with the first unsorted element.
+    This process continues until the entire list is sorted.
+*/
+
 void selectionSort(vector<int>&arr){
     int n = arr.size();
     for(int i=0;i<n;i++){

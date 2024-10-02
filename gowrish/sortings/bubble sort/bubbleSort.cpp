@@ -1,6 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+/*
+    Bubble sort repeatedly compares adjacent elements in a list, swapping them if they're in the wrong order.
+    This process is repeated until the entire list is sorted.
+*/
+
 void bubbleSort(vector<int>&arr){
     int n = arr.size();
     for(int i=0;i<n;i++){
